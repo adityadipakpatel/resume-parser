@@ -8,14 +8,14 @@ history = [
     {"role": "system", "content": "You are an intelligent assistant who helps by taking a paragraph of text from the user along with Jake Ryan's template that is already on the system and editing the template accordingly. Provide a .tex file that is tailored to the user's information. Always provide well-reasoned answers that are both correct and helpful."},
 ]
 
-while True:
-    # Get user input
-    user_input = input("> ")
-    
-    # Update history with the new user input
-    history.append({"role": "user", "content": user_input})
-    
-    # Make API call
+# Replace this with your user input (e.g., from a form or another source)
+user_input = "Your input text here"
+
+# Update history with the new user input
+history.append({"role": "user", "content": user_input})
+
+# Make API call
+try:
     completion = client.chat.completions.create(
         model="TheBloke/airoboros-mistral2.2-7B-GGUF",
         messages=history,
@@ -28,18 +28,15 @@ while True:
     
     for chunk in completion:
         if chunk.choices[0].delta.content:
-            print(chunk.choices[0].delta.content, end="", flush=True)
             new_message["content"] += chunk.choices[0].delta.content
 
-    # Append the assistant's response to history
-    history.append(new_message)
-    
-    # Uncomment to see chat history
-    # import json
-    # gray_color = "\033[90m"
-    # reset_color = "\033[0m"
-    # print(f"{gray_color}\n{'-'*20} History dump {'-'*20}\n")
-    # print(json.dumps(history, indent=2))
-    # print(f"\n{'-'*55}\n{reset_color}")
+    # Save the response to a .tex file
+    try:
+        with open("output.tex", "w") as file:
+            file.write(new_message["content"])
+        print("File saved successfully.")
+    except Exception as e:
+        print(f"There was an error: {e}")
 
-    print()
+except Exception as e:
+    print(f"There was an error with the API call: {e}")
