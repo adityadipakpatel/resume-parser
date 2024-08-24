@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "pdfkit": "^0.15.0",
+    "uuid": "^10.0.0"
   }
 }

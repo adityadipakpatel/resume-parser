@@ -1,14 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const resumeRoutes = require('./routes/resumeroutes');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
+
+//middleware-important for express(main things)
+app.use(bodyParser.json()); // Parse JSON bodies
 
 
-app.get('/', (req, res) => {
-    res.send('Hello, world!');
-});
 
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

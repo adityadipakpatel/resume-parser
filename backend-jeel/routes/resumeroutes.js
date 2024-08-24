@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const resumeController = require('../controllers/resumeController');
+const resumeController = require('../controller/resumeController');
 
 //Route to get all resumes
 router.get('/', (req, res) => {

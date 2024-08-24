@@ -1,58 +1,72 @@
-//logic for handling file uploads and parsing
+const express = require('express');
+const router = express.Router();
+const Resume = require('../models/resume.model');
 
-const { v4: uuidv4 } = require('uuid');
+// Route to get all resumes
+router.route('/').get((req, res) => {
+    const resumes = Resume.getAll();
+    res.json(resumes);
+});
 
+// Route to create a new resume
+router.route('/').post((req, res) => {
+    const { name, email, phone, skills, experience, education } = req.body;
 
-let resumes = {};
-
-exports.createResume = (req, res) => {
-    try {
-        const id = uuidv4();
-        const newResume = { id, ...req.body };
-        resumes[id] = newResume;
-        res.status(201).json(newResume);
-    } catch (err) {
-        res.status(400).json({ error: err.message });
+    // Check if required fields are provided
+    if (!name || !email || !phone || !skills || !experience || !education) {
+        return res.status(400).json('Error: Missing required fields');
     }
-};
 
-exports.getAllResumes = (req, res) => {
-    try {
-        res.status(200).json(Object.values(resumes));
-    } catch (err) {
-        res.status(400).json({ error: err.message });
-    }
-};
+    const newResume = Resume.create({
+        name,
+        email,
+        phone,
+        skills,
+        experience,
+        education,
+    });
 
-exports.getResumeById = (req, res) => {
-    try {
-        const resume = resumes[req.params.id];
-        if (!resume) return res.status(404).json({ error: 'Resume not found' });
-        res.status(200).json(resume);
-    } catch (err) {
-        res.status(400).json({ error: err.message });
-    }
-};
+    res.status(201).json(newResume);
+});
 
-exports.updateResume = (req, res) => {
-    try {
-        const resume = resumes[req.params.id];
-        if (!resume) return res.status(404).json({ error: 'Resume not found' });
-        const updatedResume = { ...resume, ...req.body };
-        resumes[req.params.id] = updatedResume;
-        res.status(200).json(updatedResume);
-    } catch (err) {
-        res.status(400).json({ error: err.message });
-    }
-};
+// Route to get a resume by ID
+router.route('/:id').get((req, res) => {
+    const resumeId = parseInt(req.params.id, 10);
+    const resume = Resume.getById(resumeId);
 
-exports.deleteResume = (req, res) => {
-    try {
-        const resume = resumes[req.params.id];
-        if (!resume) return res.status(404).json({ error: 'Resume not found' });
-        delete resumes[req.params.id];
-        res.status(200).json({ message: 'Resume deleted' });
-    } catch (err) {
-        res.status(400).json({ error: err.message });
+    if (!resume) {
+        return res.status(404).json('Error: Resume not found');
     }
-};
+    else {
+        res.json(resume);
+    }
+});
+
+// Route to delete a resume by ID
+router.route('/:id').delete((req, res) => {
+    const resumeId = parseInt(req.params.id, 10);
+    const success = Resume.deleteById(resumeId);
+
+    if (!success) {
+        return res.status(404).json('Error: Resume not found');
+    }
+    else {
+        res.json('Resume deleted.');
+    }
+});
+
+
+router.route('/:id').put((req, res) => {
+    const resumeId = parseInt(req.params.id, 10);
+    const updates = req.body;
+    const updatedResume = Resume.updateById(resumeId, updates);
+
+    if (!updatedResume) {
+        return res.status(404).json('Error: Resume not found');
+    }
+    else {
+        res.json(updatedResume);
+    }
+});
+
+module.exports = router;
