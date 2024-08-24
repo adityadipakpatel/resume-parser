@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-op Resume Parser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="left-side">
+        <div class="logo">
+            <img src="uoaimg.png" alt="UOA img">
+        </div>
+        <h1>Co-op Resume Parser</h1>
+        <textarea id="resumeInput" placeholder="Enter Your Text"></textarea>
+        <button onclick="generateResume()">Submit</button>
+    </div>
+
+    <div class="right-side pdf-container" id="pdfContainer">
+        <iframe id="resumePdf" src=""></iframe>
+        <button onclick="downloadResume()">Download</button>
+    </div>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
