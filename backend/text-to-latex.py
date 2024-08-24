@@ -7,8 +7,17 @@ client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
 history = [
     {"role": "system", "content": "You are an intelligent assistant who helps by taking a paragraph of text from user along with jake ryan's template that is already on system and edit the template accordingly and give one .tex file which is tailored to the user's information. You always provide well-reasoned answers that are both correct and helpful."},
-    {"role": "user", "content": ""},
+    {"role": "user", "content": f"aditya
+worked at amazon for 4 years from jan 2017 to 2021
+studied at dps in india
+"},
 ]
+
+# IMPORTANT:
+# change line 10 with user's text
+
+
+
 
 while True:
     completion = client.chat.completions.create(
