@@ -1,25 +1,21 @@
-
-# Chat with an intelligent assistant in your terminal
 from openai import OpenAI
 
 # Point to the local server
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
+# Initialize history with a placeholder for user input
 history = [
-    {"role": "system", "content": "You are an intelligent assistant who helps by taking a paragraph of text from user along with jake ryan's template that is already on system and edit the template accordingly and give one .tex file which is tailored to the user's information. You always provide well-reasoned answers that are both correct and helpful."},
-    {"role": "user", "content": f"aditya
-worked at amazon for 4 years from jan 2017 to 2021
-studied at dps in india
-"},
+    {"role": "system", "content": "You are an intelligent assistant who helps by taking a paragraph of text from the user along with Jake Ryan's template that is already on the system and editing the template accordingly. Provide a .tex file that is tailored to the user's information. Always provide well-reasoned answers that are both correct and helpful."},
 ]
 
-# IMPORTANT:
-# change line 10 with user's text
-
-
-
-
 while True:
+    # Get user input
+    user_input = input("> ")
+    
+    # Update history with the new user input
+    history.append({"role": "user", "content": user_input})
+    
+    # Make API call
     completion = client.chat.completions.create(
         model="TheBloke/airoboros-mistral2.2-7B-GGUF",
         messages=history,
@@ -27,6 +23,7 @@ while True:
         stream=True,
     )
 
+    # Process the response
     new_message = {"role": "assistant", "content": ""}
     
     for chunk in completion:
@@ -34,6 +31,7 @@ while True:
             print(chunk.choices[0].delta.content, end="", flush=True)
             new_message["content"] += chunk.choices[0].delta.content
 
+    # Append the assistant's response to history
     history.append(new_message)
     
     # Uncomment to see chat history
@@ -45,5 +43,3 @@ while True:
     # print(f"\n{'-'*55}\n{reset_color}")
 
     print()
-    history.append({"role": "user", "content": input("> ")})
-
