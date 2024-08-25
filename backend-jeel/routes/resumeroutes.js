@@ -27,4 +27,8 @@ router.delete('/:id', (req, res) => {
     resumeController.deleteResume(req, res);
 });
 
+router.get('/:id/pdf', (req, res) => {
+    resumeController.generateResumePdf(req, res);
+});
+
 module.exports = router;
