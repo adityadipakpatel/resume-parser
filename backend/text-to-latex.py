@@ -1,3 +1,13 @@
+###
+# REPLACE THE SAMPLE1.TXT WITH THE DYNAMIC NAME OF THE USER INPUT FILE AFTER SETING UP THE AUTOMATIC SAVE OF THE USER TEXT INTO USER_LOGS FOLDER
+### 
+
+#####
+# WORK ON AUTOMATIC SAVING TO .txt FILE FROM THE WEBSITE WHEN USER CLICKS ON SUBMIT,
+# ALSO THE DOWNLOAD BUTTON, AND PDF DISPLAY ONTO WEBISTE
+#####
+
+
 import os
 import shutil
 from datetime import datetime
@@ -9,23 +19,15 @@ client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
 # Initialize history with a placeholder for user input
 history = [
-    {"role": "system", "content": "You are an intelligent assistant who helps by taking a paragraph of text from the user along with Jake Ryan's template that is already on the system and editing the template accordingly. Provide a .tex file that is tailored to the user's information. Always provide well-reasoned answers that are both correct and helpful."},
+    {"role": "system", "content": "You are an intelligent assistant who helps by taking a paragraph of text from the user along with Jake Ryan's template that is already on the system and editing the template accordingly. Provide a .tex file that is tailored to the user's information by merging the input text into the template, keeping the overall structure intact. Always provide well-reasoned answers that are both correct and helpful."},
 ]
 
 # Read user input from a .txt file inside the user_logs folder
 user_logs_folder = "./user_logs"
 user_input_file = os.path.join(user_logs_folder, "sample1.txt")
-###
-# REPLACE THE SAMPLE1.TXT WITH THE DYNAMIC NAME OF THE USER INPUT FILE AFTER SETING UP THE AUTOMATIC SAVE OF THE USER TEXT INTO USER_LOGS FOLDER
-### 
 
 with open(user_input_file, "r") as file:
     user_input = file.read().strip()
-
-#####
-# WORK ON AUTOMATIC SAVING TO .txt FILE FROM THE WEBSITE WHEN USER CLICKS ON SUBMIT,
-# ALSO THE DOWNLOAD BUTTON, AND PDF DISPLAY ONTO WEBISTE
-#####
 
 # Update history with the new user input
 history.append({"role": "user", "content": user_input})
@@ -48,7 +50,7 @@ try:
     shutil.copy(template_file, copied_template)
 
     # Modify the LLM prompt to include the path of the copied template
-    history.append({"role": "user", "content": f"The LaTeX template is located at: {copied_template}. Please edit it based on the user's information."})
+    history.append({"role": "user", "content": f"The LaTeX template is located at: {copied_template}. Please merge the user's information into this template and ensure that the final document maintains the template's structure."})
 
     # Make the API call
     completion = client.chat.completions.create(
