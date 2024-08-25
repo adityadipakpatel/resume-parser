@@ -1,0 +1,59 @@
+\documentclass[11pt, oneside]{article}
+\usepackage{latexlsf}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0.745,0.596,0.325}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.1ex}
+\DeclareTextFontCommand{\textcolor}[2]{rgb-x}{color=rgb{#1,#2,#3}}
+
+\begin{document}
+\onehalfspacing
+\thispagestyle{empty}
+\setlength{\unitsep}{10pt}
+\setlength{\unitskip}{16pt}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.5cm plus 0.2cm}
+
+\section*{\Large \textbf{John Doe}}
+
+\begin{center}
+\colorbox{mygreen}{
+\parbox[c][1em]{25em}{%
+\centering
+\sffamily
+\textcolor{white}{Software Engineer}
+}}\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}\vspace*{6pt}
+
+\begin{itemize}[leftmargin=*]
+    \item[\textcolor{mygreen}{\bfseries Python}]
+    \item[\textcolor{mygreen}{\bfseries JavaScript}]
+    \item[\textcolor{mygreen}{\bfseries React}]
+    \item[\textcolor{mygreen}{\bfseries Node.js}]
+\end{itemize}
+\vspace*{14pt}
+
+\section*{\Large \textbf{Experience}}
+
+\begin{itemize}[leftmargin=0cm]
+    \item[\textcolor{blue}{TechCorp, 2021-2024}]
+        \begin{itemize}[leftmargin=*]
+            \item Developed and maintained web applications using Python, JavaScript, React, Node.js with a focus on user experience and scalability.
+            \item Led team of five engineers in designing and implementing new features for the company's flagship product.
+            \item Designed and implemented an automated testing framework that increased test coverage by 30%.
+        \end{itemize}
+\end{itemize}
+
+\section*{\Large \textbf{Education}}
+
+\begin{itemize}[leftmargin=0cm]
+    \item[\textcolor{blue}{XYZ University, B.Sc. in Computer Science}]
+        \begin{itemize}[leftmargin=*]
+            \item Graduated with honors in 2021.
+            \item Concentration in Artificial Intelligence and Machine Learning.
+            \item Thesis: "Efficient Algorithms for Large-Scale Optimization Problems."
+        \end{itemize}
+\end{itemize}
+\end{document}

@@ -1,0 +1,6 @@
+Name: Jane Smith
+Position: Data Analyst
+Skills: SQL, R, Python, Data Visualization, Excel
+Experience: 2 years at DataSolve, analyzed and visualized data trends
+Education: B.A. in Economics, ABC College
+

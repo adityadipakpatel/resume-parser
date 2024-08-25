@@ -1,0 +1,6 @@
+Name: Alice Johnson
+Position: Project Manager
+Skills: Agile, Scrum, Jira, Team Leadership
+Experience: 5 years at InnovateX, led multiple software development projects
+Education: M.B.A., DEF Business School
+

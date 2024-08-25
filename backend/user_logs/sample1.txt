@@ -1,0 +1,6 @@
+Name: John Doe
+Position: Software Engineer
+Skills: Python, JavaScript, React, Node.js
+Experience: 3 years at TechCorp, developed and maintained web applications
+Education: B.Sc. in Computer Science, XYZ University
+

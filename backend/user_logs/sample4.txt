@@ -1,0 +1,6 @@
+Name: Robert Brown
+Position: Cybersecurity Specialist
+Skills: Network Security, Ethical Hacking, Firewalls, Encryption
+Experience: 4 years at SecureNet, implemented security protocols for corporate networks
+Education: M.S. in Information Security, GHI University
+

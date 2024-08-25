@@ -1,0 +1,50 @@
+```latex
+\documentclass[12pt]{article} % Set the default paper size to be A4 with 12pt text (can be changed in the document class)
+
+% Set page margins and formatting values
+\usepackage{geometry}
+\geometry{letterpaper, textsize=12pt, margin=0.75in}
+
+\usepackage{fancyhdr} % Customize header/footers for all pages in the document
+\fancyhf{} % Clear all existing header and footer information
+\renewcommand{\headrulewidth}{0pt} % Set width of custom head rules
+\fancyheadoft{%
+    \begin{center}\huge\bfseries\thepage\\\end{center}
+}
+\fancyfoot{} % Clear all existing header and footer information
+\fancyfoot[C]{%
+    \begin{minipage}{0.85\textwidth}
+        \small\itshape
+        John Doe \\
+        Software Engineer \\
+        Skills: Python, JavaScript, React, Node.js \\
+        Experience: 3 years at TechCorp, developed and maintained web applications \\
+        Education: B.Sc. in Computer Science, XYZ University
+    \end{minipage}
+}
+
+\usepackage{graphicx} % Required for including images in the document
+
+\begin{document}
+
+\title{Curriculum Vitae of John Doe}
+\author{John Doe}
+
+\date{\today} % Uncomment this line to include the current date on your CV
+
+\maketitle % Prints out the title and author/date information
+
+% Begin text body section with appropriate formatting settings
+\section*{\uppercase{Skills}}
+Python, JavaScript, React, Node.js
+
+\section*{Experience}
+3 years at TechCorp, developed and maintained web applications
+
+\section*{Education}
+B.Sc. in Computer Science, XYZ University
+
+% End text body section with appropriate formatting settings
+
+\end{document}
+```
