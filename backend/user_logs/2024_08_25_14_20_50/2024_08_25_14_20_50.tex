@@ -1,0 +1,81 @@
+```latex
+\documentclass[10pt]{resume-template} % Use the custom resume.cls file (see README)
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[usenames,dvipnames]{color}
+
+\definecolor{linkcolor}{HTML}{3465A0} 
+
+% Define your color choices for headings and text
+\definecolor{headingcolor}{HTML}{457B9F} % Heading Color
+\definecolor{textcolor}{HTML}{3F51B5} % Text Color
+\definecolor{urlcolor}{HTML}{263D6A} 
+
+% Customize page layout and other parameters
+\usepackage[left=1.0cm,right=1.0cm,top=1.75cm,bottom=1.75cm]{geometry}
+\setlength{\parindent}{0pt} % No indentation for paragraphs
+
+% Define the contact information in a way that allows easy editing
+\name{John Doe}
+\address{123 Tech Avenue \\ San Francisco, CA 94105 \\ (555) 123-4567 \\ john.doe@email.com \\ \href{https://www.linkedin.com/in/johndoe}{LinkedIn: linkedin.com/in/johndoe} \\ \href{https://github.com/johndoe}{GitHub: github.com/johndoe}}
+
+\makeheadings
+
+% Include a photo if desired (uncomment the line below and comment out the "No Photo" text)
+% \photo[0.25]{user_logs/2024_08_25_14_20_50.jpg} % User log directory and file name
+
+\opening
+
+\section{Professional Summary}
+Highly skilled Software Engineer with over 3 years of experience in designing, developing, and maintaining web applications. Proven expertise in Python, JavaScript, React, and Node.js. Adept at collaborating with cross-functional teams to deliver high-quality software solutions. Strong background in problem-solving, agile methodologies, and software development lifecycle.
+
+\section{Professional Experience}
+% Add more as needed
+\begin{entrylist}
+\entry
+Software Engineer \\
+TechCorp, San Francisco, CA \\
+June 2021 - Present
+Developed and maintained scalable web applications using React and Node.js, improving user engagement by 25%.
+Implemented RESTful APIs in Python to integrate third-party services, enhancing functionality and user experience.
+Led a team of 4 developers in the creation of a high-traffic e-commerce platform, achieving a 15% reduction in load times.
+Conducted code reviews and provided mentorship to junior developers.
+Utilized Agile methodologies to manage project timelines and deliverables.
+\end{entrylist}
+
+\begin{entrylist}
+\entry
+Junior Software Developer \\
+InnovateTech, San Francisco, CA \\
+January 2019 - May 2021
+Contributed to the development of web applications using JavaScript and React, leading to a 20% increase in user satisfaction.
+Assisted in the migration of legacy systems to modern architectures, improving system performance and maintainability.
+Collaborated with UI/UX designers to create intuitive interfaces.
+Wrote unit and integration tests to ensure code quality.
+Participated in daily stand-ups and sprint planning meetings.
+\end{entrylist}
+
+\section{Education}
+Bachelor of Science in Computer Science \\
+XYZ University, Boston, MA \\
+Graduated: May 2018
+Relevant coursework: Data Structures and Algorithms, Database Systems, Web Development, Software Engineering.
+Capstone Project: Developed a machine learning-based recommendation system that increased user engagement by 30%.
+
+\section{Skills}
+Languages: Python, JavaScript, TypeScript, SQL
+Frameworks/Libraries: React, Node.js, Express, Django
+Tools/Technologies: Git, Docker, Jenkins, PostgreSQL, MongoDB, Elasticsearch
+
+\section{Certifications}
+AWS Certified Developer - Associate \\
+Google Cloud Professional Cloud Developer (GCP)
+
+\opening
+
+\section{Publications}
+"Optimizing Web Application Performance with Machine Learning" \\
+"Automated Testing for Modern Web Apps"
+
+\closing
+```

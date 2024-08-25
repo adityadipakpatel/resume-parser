@@ -1,0 +1,96 @@
+```latex
+\documentclass[10pt]{resume-template} % Takes a single argument (font size)
+\usepackage{lmodern} % Loads the Latin Modern font which looks nicer than the default one
+\moderncvstyle{bank-street} % The style used by the template. It's better to use this instead of plain, as it includes additional styling information in its definition.
+\renewcommand*[2]{#1{\unskip\scantwo#2}} % This is needed to correctly format dates in the "experience" section.
+
+\firstname{John} % Your first name
+\lastname{Doe} % Your last name
+
+\addresslineone{123 Tech Avenue} % Your address. Note that this should be 3 lines.
+\addresslineone{San Francisco, CA 94105}
+\addresslineone{(555) 123-4567}
+\addresslineone{john.doe@email.com}
+\addresslineone{LinkedIn: linkedin.com/in/johndoe}
+\addresslineone{GitHub: github.com/johndoe}
+
+\section[resume section titles]{Professional Summary} % Change this to match the title of your experience section.
+Here comes a brief summary of your professional background, achievements and skills in bullet points. Make sure it's concise but informative.
+
+\begin{center}
+  \faIconTr{user_logs/2024_08_25_14_13_31.png}{6em} % Include your picture using the fontawesome package and this image file.
+\end{center}
+
+\section[resume section titles]{Professional Experience}
+\subsection*{Software Engineer}
+\begin{period} % Periods are used here to separate dates and locations of jobs.
+\datedline{Jun 2021 -- Present} % Date range of the job.
+\institution{TechCorp, San Francisco, CA} % Institution name and location.
+\jobdescription{Developed and maintained scalable web applications using React and Node.js, improving user engagement by 25\%.\\
+Implemented RESTful APIs in Python to integrate third-party services, enhancing functionality and user experience.\\
+Led a team of 4 developers in the creation of a high-traffic e-commerce platform, achieving a 15\% reduction in load times.}
+\end{period}
+
+\subsection*{Junior Software Developer}
+\begin{period} % Periods are used here to separate dates and locations of jobs.
+\datedline{Jan 2019 -- May 2021} % Date range of the job.
+\institution{InnovateTech, San Francisco, CA} % Institution name and location.
+\jobdescription{Contributed to the development of web applications using JavaScript and React, leading to a 20\% increase in user satisfaction.}
+\end{period}
+
+\subsection*{Other Job Titles or Positions}
+\begin{period}
+\datedline{} % You can leave this blank if there is no date information for the position.
+\institution{}
+\jobdescription{}
+\end{period}
+
+\section[resume section titles]{Education}
+\subsection*{Bachelor of Science in Computer Science}
+\begin{period} % Periods are used here to separate dates and locations of degrees.
+\datedline{May 2018} % Graduation date.
+\institution{XYZ University, Boston, MA} % Institution name and location.
+\relevantcourses{Data Structures and Algorithms, Database Systems, Web Development, Software Engineering.}
+\end{period}
+
+\subsection*{Other Degrees or Certifications}
+\begin{period}
+\datedline{} % You can leave this blank if there is no date information for the position.
+\institution{}
+\jobdescription{}
+\end{period}
+
+\section[resume section titles]{Skills \& Languages}
+Languages: Python, JavaScript, TypeScript, SQL
+Frameworks/Libraries: React, Node.js, Express, Django
+Tools/Technologies: Git, Docker, Kubernetes
+
+\section{Achievements \& Publications}
+This section should include your most notable achievements and any publications you've made during your career.
+
+\subsection*{Achievements}
+\begin{period}
+\datedline{} % You can leave this blank if there is no date information for the position.
+\institution{}
+\jobdescription{}
+\end{period}
+
+\subsection*{Publications}
+\begin{period}
+\datedline{} % You can leave this blank if there is no date information for the position.
+\institution{}
+\jobdescription{}
+\end{period}
+
+\section[resume section titles]{Hobbies \& Interests}
+This section should include your hobbies and interests to showcase your personality.
+
+\subsection*{Hobbies \& Interests}
+\begin{period}
+\datedline{} % You can leave this blank if there is no date information for the position.
+\institution{}
+\jobdescription{}
+\end{period}
+
+\end{document}
+```

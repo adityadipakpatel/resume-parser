@@ -1,0 +1,93 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.25)  25 AUG 2024 14:18
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./user_logs/2024_08_25_14_15_45/2024_08_25_14_15_45.tex
+(./user_logs/2024_08_25_14_15_45/2024_08_25_14_15_45.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 `
+     ``latex
+? 
+Missing character: There is no ` in font nullfont!
+Missing character: There is no ` in font nullfont!
+Missing character: There is no ` in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--274
+[]
+ []
+
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+[1{/usr/local/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+
+! LaTeX Error: File `fontawesome.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box51
+\shadowsize=\dimen141
+\@Sbox=\box52
+\do@VerbBox=\toks17
+\the@fancyput=\toks18
+\this@fancyput=\toks19
+\EndVerbatimTokens=\toks20
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read2
+)
+
+! LaTeX Error: File `esveccolor.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.7 \usepackage
+               {urlcolor}^^M
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 431 strings out of 475567
+ 5805 string characters out of 5777889
+ 1925187 words of memory out of 5000000
+ 22665 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 39i,5n,38p,170b,119s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

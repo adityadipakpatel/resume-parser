@@ -39,7 +39,17 @@ try:
     shutil.copy(template_file, copied_template)
 
     # Modify the LLM prompt to include the path of the copied template
-    history.append({"role": "user", "content": f"The LaTeX template is located at: {copied_template}. Please merge the user's information into this template and ensure that the final document maintains the template's structure."})
+    history.append({
+        "role": "user",
+        "content": (
+            f"Please edit the LaTeX template located at: {copied_template}. "
+            "The template contains a predefined structure for a resume. "
+            "Ensure that the LaTeX file starts with `\\documentclass{{}}`, followed by `\\begin{{document}}` and ends with `\\end{{document}}`. "
+            "Incorporate the user's information into this template while preserving its layout and formatting. "
+            "Ensure that all necessary LaTeX commands and packages are included in the output, and check that any required class files, like `resume-template.cls`, are accessible. "
+            "If additional class files or packages are required, include instructions or provide them."
+        )
+    })
 
     # Make the API call
     completion = client.chat.completions.create(
