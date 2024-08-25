@@ -8,17 +8,7 @@ body {
     background: linear-gradient(135deg, #007C41, #FFDB00);
 }
 
-.background-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url('images/cslogo.jpg') no-repeat center center;
-    background-size: contain; /* Ensures the image maintains its aspect ratio */
-    width: 300px; /* Adjust the width as needed */
-    height: 300px; /* Adjust the height as needed */
-    z-index: -1; /* Ensures the image is behind other content */
-}
+
 
 
 .container {
