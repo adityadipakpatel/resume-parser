@@ -10,6 +10,9 @@ history = [
 
 # Replace this with your user input (e.g., from a form or another source)
 user_input = "Your input text here"
+#####
+# REPLACE THIS AND LINK AND MAKE THIS DYNAMIC
+#####
 
 # Update history with the new user input
 history.append({"role": "user", "content": user_input})
@@ -25,7 +28,7 @@ try:
 
     # Process the response
     new_message = {"role": "assistant", "content": ""}
-    
+
     for chunk in completion:
         if chunk.choices[0].delta.content:
             new_message["content"] += chunk.choices[0].delta.content
