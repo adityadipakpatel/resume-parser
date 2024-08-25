@@ -1,0 +1,35 @@
+```latex
+\documentclass{article}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\renewcommand{\sectionmark}[1]{%
+  \ifnum\value{#1}=\@ne\relax
+    \refname{}
+  \else
+    \refname{}~\thesection
+  \fi}
+
+\lhead[\scshape\@title]{\scshape\leftmark}
+\chead[]{\scshape}\vfill
+\rhead[\scshape\rightmark]{\scshape\@author}
+\cfoot[\today]{}
+
+\begin{document}
+
+\section*{Resume of Robert Brown}
+\setcounter{page}{1}
+
+\subsection*{Position}
+Cybersecurity Specialist
+
+\subsection*{Skills}
+Network Security, Ethical Hacking, Firewalls, Encryption
+
+\subsection*{Experience}
+4 years at SecureNet, implemented security protocols for corporate networks
+
+\subsection*{Education}
+M.S. in Information Security, GHI University
+
+\end{document}
+```

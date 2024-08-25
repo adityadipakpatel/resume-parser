@@ -1,0 +1,47 @@
+```latex
+\documentclass[10pt]{article}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{} % clear all header and footer line
+\fancyhead{}
+\renewcommand{\sectionmark}[1]{\mbox{}\vrule height .3em}
+
+\begin{document}
+
+\section*{User: Robert Brown}
+\noindent\hrule\par
+\settowidth{\marginparwidth}{Robert Brown}
+\addtolength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{16pt}
+
+\begin{flushleft}
+\marginnote{\large \bfseries Name: } Robert Brown \\
+\end{flushleft}
+\noindent\rule{1.5ex}{3pt}\par
+\settowidth{\marginsparwidth}{\itshape Position: } Cybersecurity Specialist \\
+\addtolength{\marginsparwidth}{0pt}
+\begin{flushright}
+\marginnote{\large \bfseries Position: } Cybersecurity Specialist \\
+\end{flushright}
+\noindent\rule{1.5ex}{3pt}\par
+\settowidth{\marginsparwidth}{\itshape Skills: } Network Security, Ethical Hacking, Firewalls, Encryption \\
+\addtolength{\marginsparwidth}{0pt}
+\begin{flushright}
+\marginnote{\large \bfseries Skills: } Network Security, Ethical Hacking, Firewalls, Encryption \\
+\end{flushright}
+\noindent\rule{1.5ex}{3pt}\par
+\settowidth{\marginsparwidth}{\itshape Experience: } 4 years at SecureNet, implemented security protocols for corporate networks \\
+\addtolength{\marginsparwidth}{0pt}
+\begin{flushright}
+\marginnote{\large \bfseries Experience: } 4 years at SecureNet, implemented security protocols for corporate networks \\
+\end{flushright}
+\noindent\rule{1.5ex}{3pt}\par
+\settowidth{\marginsparwidth}{\itshape Education: } M.S. in Information Security, GHI University \\
+\addtolength{\marginsparwidth}{0pt}
+\begin{flushright}
+\marginnote{\large \bfseries Education: } M.S. in Information Security, GHI University \\
+\end{flushright}
+
+\end{document}
+```

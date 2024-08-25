@@ -1,17 +1,6 @@
-###
-# REPLACE THE SAMPLE1.TXT WITH THE DYNAMIC NAME OF THE USER INPUT FILE AFTER SETING UP THE AUTOMATIC SAVE OF THE USER TEXT INTO USER_LOGS FOLDER
-### 
-
-#####
-# WORK ON AUTOMATIC SAVING TO .txt FILE FROM THE WEBSITE WHEN USER CLICKS ON SUBMIT,
-# ALSO THE DOWNLOAD BUTTON, AND PDF DISPLAY ONTO WEBISTE
-#####
-
-
 import os
 import shutil
 from datetime import datetime
-from subprocess import run
 from openai import OpenAI
 
 # Point to the local server
@@ -37,7 +26,7 @@ current_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 output_folder = os.path.join(user_logs_folder, current_time)
 
 try:
-    # Create the new folder in backend/user_logs/
+    # Create the new folder
     os.makedirs(output_folder)
 
     # Path to Jake Ryan's LaTeX template
@@ -75,16 +64,16 @@ try:
     except Exception as e:
         print(f"There was an error saving the file: {e}")
 
-    # Run pdflatex to convert the .tex file to a .pdf
+    # Run pdflatex using a hardcoded bash command
     try:
         print("Running pdflatex...")
-        pdflatex_path = "/Library/TeX/texbin/pdflatex"  # Path to pdflatex on macOS
-        result = run([pdflatex_path, "-output-directory", output_folder, copied_template], capture_output=True, text=True)
+        command = f"pdflatex -output-directory {output_folder} {copied_template}"
+        exit_code = os.system(command)
         
-        if result.returncode == 0:
+        if exit_code == 0:
             print(f"PDF generated successfully in {output_folder}.")
         else:
-            print(f"pdflatex encountered an error:\n{result.stderr}")
+            print(f"pdflatex encountered an error with exit code {exit_code}.")
 
     except Exception as e:
         print(f"There was an error running pdflatex: {e}")

@@ -1,0 +1,94 @@
+```latex
+% Template for a Curriculum Vitae
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fancyhdr, url}
+\usepackage[hyphens]{soul} % for hyphenation of long words in the "Personal Details" section
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.8ex plus 0.2ex}
+
+\pagestyle{fancy}
+\renewcommand*{\headrulewidth}{0.4pt}
+\lfoot{} \cfoot{\thepage}
+
+\def\cvsection#1{\clearpage\vspace{-3mm}\begin{center}\huge\textbf{#1}\normalsize\end{center}\par\addcontentsline{toc}{section}{#1}}
+\def\cvsubsection#1{\@startsection{subsection}{2}{v}{\cspg}{#1}{}%
+    \addcontentsline{toc}{subsection}{#1}}
+
+\begin{document}
+
+% Personal Details
+\cvsection{Personal Details}
+\uvspace{0.75}\itshape
+
+Full Name: John Doe
+E-mail: johndoe@example.com
+Phone: (123) 456-7890
+Website: \href{http://www.johndoe.com}{www.john.doe}
+GitHub: \href{https://github.com/JohnDoe}{JohnDoe}
+LinkedIn: \href{https://linkedin.com/in/johndoe}{John Doe}
+\bigskip
+
+% Education
+\cvsection{Education}
+\uvspace{0.75}\itshape
+
+B.Sc. in Computer Science, XYZ University, 2019-2024
+Coursework Included: Machine Learning, Artificial Intelligence, Distributed Systems, Databases, Data Structures and Algorithms
+
+% Skills
+\cvsection{Skills}
+\uvspace{0.75}\itshape
+
+Programming Languages: Python, JavaScript
+Frameworks / Tools: React, Node.js
+Operating Systems: Linux (Ubuntu)
+Languages: English (Fluent), Spanish (Intermediate)
+
+% Experience
+\cvsection{Experience}
+\uvspace{0.75}\itshape
+
+Position: Software Engineer
+Company: TechCorp, 2021-Present
+Responsibilities: Developed and maintained web applications using React and Node.js.
+
+Position: Software Engineer Intern
+Company: XYZ Inc., Summer 2020
+Responsibilities: Designed and implemented a machine learning model for predicting customer churn using Python and scikit-learn library.
+
+% Publications
+\cvsection{Publications}
+\uvspace{0.75}\itshape
+
+Title: "A Title for a Paper"
+Journal: IEEE Transactions on Computers
+Volume: 42
+Issue: 3
+Pages: 1-10
+Year: 2021
+
+Title: "Another Title for a Paper"
+Conference: ACM SIGGRAPH
+Year: 2020
+
+% Awards and Recognition
+\cvsection{Awards \& Recognition}
+\uvspace{0.75}\itshape
+
+Award Name: Award Year
+
+Award Name: Award Year
+
+% Conclusion
+\bigskip
+\cvsection{Conclusion}
+\itshape
+
+I am eager to leverage my experience and skills in the field of software engineering at your esteemed organization. I believe that my passion for technology, coupled with my strong academic background, makes me an ideal candidate for this position. Thank you for considering my application.
+
+\end{document}
+```

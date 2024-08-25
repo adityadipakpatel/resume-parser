@@ -1,0 +1,35 @@
+```latex
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\pagestyle{fancyplain} % Sets the page layout to use fancyhdr
+
+\renewcommand{\sectionmark}[1]{%
+  \markright{\arabic{chapter}.\ \@#1}%
+}
+
+\lhead{\ifnum\value{section}=2 \the\value{chapter}\else \the\value{section}\fi}
+\chead{}
+\rhead{\leftline{Jake Ryan's Resume}}
+\lfoot{\today}
+\cfoot{\thepage}
+
+\title{John Doe}
+\author{Software Engineer}
+
+\begin{document}
+
+\maketitle
+
+\section{Position and Experience}
+\textbf{Position:} Software Engineer\\
+\textbf{Experience:} 3 years at TechCorp, developed and maintained web applications.
+
+\section{Education}
+\textbf{Education:} B.Sc. in Computer Science, XYZ University
+
+\section{Skills}
+\textbf{Python}, \textbf{JavaScript}, \textbf{React}, \textbf{Node.js}
+
+\end{document}
+```

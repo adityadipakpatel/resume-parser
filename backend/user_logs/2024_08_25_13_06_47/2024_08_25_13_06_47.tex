@@ -1,0 +1,61 @@
+```latex
+\documentclass[12pt]{article}
+% The following line sets the margins to 1 inch
+\usepackage{geometry}
+\geometry{a4paper,margin=0.75in}
+\setlength{\parindent}{0cm} % set paragraph indent to 0
+% Use the package graphics as a quick way to draw graphics in your document
+\usepackage{graphicx}
+% Set up the header and footer at the top/bottom of every page
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1.4pt} % sets the width of the top rule
+\renewcommand{\footrulewidth}{1.4pt}  % sets the width of the bottom rule
+\setlength{\headheight}{0.3cm}       % makes space for the text above the header line (not an official latex command)
+% Makes sure that the document is not stretched when printed on paper larger than A4
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\fancyhead{} % clears any existing content from the head and foot lines
+\fancyfootlastpage{}
+
+\begin{document}
+
+% Title page - don't touch this part
+\section*{CV of John Doe}
+\addtolength{\baselineskip}{-10pt} % Adjusts the space between lines in the paragraph
+\Large 
+\normalsize
+Position: Software Engineer
+Skills: Python, JavaScript, React, Node.js
+Experience: 3 years at TechCorp, developed and maintained web applications
+Education: B.Sc. in Computer Science, XYZ University
+% End of Title page - don't touch this part
+
+\newpage
+
+\section{Personal Information}
+Name: John Doe
+Address: Street Name, City, Postal Code, Country
+Email: johndoe@example.com
+Phone Number: (123) 456-7890
+
+\section{Education}
+\textbf{B.Sc. in Computer Science} \\
+\emph{XYZ University} \\
+\textbf{Years of Study}: 2018 - 2021\\
+\textbf{Grade Point Average (GPA)}: 3.7/4.0
+
+\section{Experience}
+\textbf{Software Engineer} \\
+\emph{TechCorp} \\
+\textbf{Years in Position}: 2021 - Present\\
+\textbf{Responsibilities}: Developed and maintained web applications using Python, JavaScript, React, Node.js.
+
+\section{Skills}
+\textbf{Programming Languages}: Python, JavaScript
+\textbf{Web Technologies}: HTML, CSS, Bootstrap, jQuery, Ajax, JSON, RESTful APIs
+\textbf{Other Skills}: Agile Methodology (Scrum), Git, Jenkins CI/CD
+
+\end{document}
+```
