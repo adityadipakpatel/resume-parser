@@ -1,20 +1,18 @@
-const express = require('express');
-const router = express.Router();
 const Resume = require('../models/resume.model');
 
-// Route to get all resumes
-router.route('/').get((req, res) => {
+// Controller to get all resumes
+const getAllResumes = (req, res) => {
     const resumes = Resume.getAll();
     res.json(resumes);
-});
+};
 
-// Route to create a new resume
-router.route('/').post((req, res) => {
+// Controller to create a new resume
+const createResume = (req, res) => {
     const { name, email, phone, skills, experience, education } = req.body;
 
     // Check if required fields are provided
     if (!name || !email || !phone || !skills || !experience || !education) {
-        return res.status(400).json('Error: Missing required fields');
+        return res.status(400).json({ error: 'Missing required fields' });
     }
 
     const newResume = Resume.create({
@@ -27,46 +25,46 @@ router.route('/').post((req, res) => {
     });
 
     res.status(201).json(newResume);
-});
+};
 
-// Route to get a resume by ID
-router.route('/:id').get((req, res) => {
+// Controller to get a resume by ID
+const getResumeById = (req, res) => {
     const resumeId = parseInt(req.params.id, 10);
     const resume = Resume.getById(resumeId);
 
     if (!resume) {
-        return res.status(404).json('Error: Resume not found');
+        return res.status(404).json({ error: 'Resume not found' });
     }
-    else {
-        res.json(resume);
-    }
-});
+    res.json(resume);
+};
 
-// Route to delete a resume by ID
-router.route('/:id').delete((req, res) => {
+// Controller to delete a resume by ID
+const deleteResume = (req, res) => {
     const resumeId = parseInt(req.params.id, 10);
     const success = Resume.deleteById(resumeId);
 
     if (!success) {
-        return res.status(404).json('Error: Resume not found');
+        return res.status(404).json({ error: 'Resume not found' });
     }
-    else {
-        res.json('Resume deleted.');
-    }
-});
+    res.json({ message: 'Resume deleted.' });
+};
 
-
-router.route('/:id').put((req, res) => {
+// Controller to update a resume by ID
+const updateResume = (req, res) => {
     const resumeId = parseInt(req.params.id, 10);
     const updates = req.body;
     const updatedResume = Resume.updateById(resumeId, updates);
 
     if (!updatedResume) {
-        return res.status(404).json('Error: Resume not found');
+        return res.status(404).json({ error: 'Resume not found' });
     }
-    else {
-        res.json(updatedResume);
-    }
-});
+    res.json(updatedResume);
+};
 
-module.exports = router;
+module.exports = {
+    getAllResumes,
+    createResume,
+    getResumeById,
+    deleteResume,
+    updateResume,
+};

@@ -24,6 +24,7 @@ const updateById = (id, updates) => {
     return null;
 };
 
+
 // Delete a resume by ID
 const deleteById = (id) => {
     if (resumes[id]) {
