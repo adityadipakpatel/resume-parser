@@ -1,21 +1,12 @@
-###
-# REPLACE THE SAMPLE1.TXT WITH THE DYNAMIC NAME OF THE USER INPUT FILE AFTER SETING UP THE AUTOMATIC SAVE OF THE USER TEXT INTO USER_LOGS FOLDER
-### 
-
-#####
-# WORK ON AUTOMATIC SAVING TO .txt FILE FROM THE WEBSITE WHEN USER CLICKS ON SUBMIT,
-# ALSO THE DOWNLOAD BUTTON, AND PDF DISPLAY ONTO WEBISTE
-#####
-
-
 import os
 import shutil
 from datetime import datetime
 from subprocess import run
-from openai import OpenAI
+import requests
 
-# Point to the local server
-client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+# ARLI API configuration
+api_endpoint = "https://api.arli.com/v1/models/mistral-nemo-12b-instruct-2407/completions"
+api_key = "your_api_key_here"  # Replace with your actual ARLI API key
 
 # Initialize history with a placeholder for user input
 history = [
@@ -24,7 +15,7 @@ history = [
 
 # Read user input from a .txt file inside the user_logs folder
 user_logs_folder = "./user_logs"
-user_input_file = os.path.join(user_logs_folder, "sample1.txt")
+user_input_file = os.path.join(user_logs_folder, "sample2.txt")
 
 with open(user_input_file, "r") as file:
     user_input = file.read().strip()
@@ -49,23 +40,24 @@ try:
     # Copy the template to the new folder and rename it
     shutil.copy(template_file, copied_template)
 
-    # Modify the LLM prompt to include the path of the copied template
-    history.append({"role": "user", "content": f"The LaTeX template is located at: {copied_template}. Please merge the user's information into this template and ensure that the final document maintains the template's structure."})
+    # Prepare data for the API call
+    data = {
+        "prompt": f"The LaTeX template is located at: {copied_template}. Please merge the user's information into this template and ensure that the final document maintains the template's structure.",
+        "max_tokens": 1000,  # Adjust based on your needs
+        "temperature": 0.7,
+        "top_p": 1.0
+    }
 
-    # Make the API call
-    completion = client.chat.completions.create(
-        model="TheBloke/airoboros-mistral2.2-7B-GGUF",
-        messages=history,
-        temperature=0.7,
-        stream=True,
-    )
+    # Make the ARLI API call
+    response = requests.post(api_endpoint, headers={"Authorization": f"Bearer {api_key}"}, json=data)
 
-    # Process the response
-    new_message = {"role": "assistant", "content": ""}
-    
-    for chunk in completion:
-        if chunk.choices[0].delta.content:
-            new_message["content"] += chunk.choices[0].delta.content
+    if response.status_code == 200:
+        completion = response.json()
+        generated_content = completion['choices'][0]['text']
+        new_message = {"role": "assistant", "content": generated_content}
+    else:
+        print(f"Error: {response.status_code} - {response.text}")
+        raise Exception("Failed to get a response from ARLI API")
 
     # Save the response to the .tex file in the new folder
     try:
@@ -75,12 +67,12 @@ try:
     except Exception as e:
         print(f"There was an error saving the file: {e}")
 
-    # Run pdflatex to convert the .tex file to a .pdf
+    # Run pdflatex using BasicTeX to convert the .tex file to a .pdf
     try:
         print("Running pdflatex...")
-        pdflatex_path = "/Library/TeX/texbin/pdflatex"  # Path to pdflatex on macOS
+        pdflatex_path = "/Library/TeX/texbin/pdflatex"  # Update this if the path differs
         result = run([pdflatex_path, "-output-directory", output_folder, copied_template], capture_output=True, text=True)
-        
+
         if result.returncode == 0:
             print(f"PDF generated successfully in {output_folder}.")
         else:
@@ -88,6 +80,20 @@ try:
 
     except Exception as e:
         print(f"There was an error running pdflatex: {e}")
+
+    # Alternatively, use the online API to generate the PDF
+    try:
+        print("Generating PDF using the online API...")
+        curl_command = f"curl -F \"file=@{copied_template}\" https://latexonline.cc/compile -o {output_folder}/output.pdf"
+        result = run(curl_command, shell=True, capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            print(f"PDF generated successfully using the online API in {output_folder}.")
+        else:
+            print(f"Online API encountered an error:\n{result.stderr}")
+
+    except Exception as e:
+        print(f"There was an error using the online API: {e}")
 
 except Exception as e:
     print(f"There was an error with the API call or file operations: {e}")
